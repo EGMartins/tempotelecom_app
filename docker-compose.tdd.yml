@@ -2,17 +2,18 @@ version: "3.9"
 services:
   db:
     image: postgres
+    ports:
+      - "5433:5432"
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: password
-      POSTGRES_USER: postgres
-      POSTGRES_DB: myapp_test
+      POSTGRES_PASSWORD: parker
+      POSTGRES_USER: peter
   tdd:
     tty: true
     stdin_open: true
     build: .
-    container_name: your-app-tdd
+    container_name: tempotelecom-tdd
     command: >
       bash -c "bundle && \
                bundle exec rake db:create && \
@@ -23,6 +24,8 @@ services:
       - .:/app
       - bundler_gems:/usr/local/bundle
     environment:
+      - POSTGRES_PASSWORD=parker
+      - POSTGRES_USER=peter
       - RAILS_ENV=test
     depends_on:
       - db
