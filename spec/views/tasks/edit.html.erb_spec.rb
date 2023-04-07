@@ -14,11 +14,11 @@ RSpec.describe "tasks/edit", type: :view do
 
     assert_select "form[action=?][method=?]", task_path(@task), "post" do
 
-      assert_select "input#task_name[name=?]", "task[name]"
+    assert_select "input#task_name[name=?]", "task[name]"
 
-      assert_select "textarea#task_description[name=?]", "task[description]"
+    assert_select "textarea#task_description[name=?]", "task[description]"
 
-      assert_select "input#task_complete[name=?]", "task[complete]"
+    assert_select "input#task_complete[name=?]", "task[complete]"
     end
   end
 end

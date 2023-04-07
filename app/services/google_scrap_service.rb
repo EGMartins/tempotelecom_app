@@ -3,7 +3,7 @@
 # Description: Service to scrap google search results
 class GoogleScrapService
   def scrap(query)
-    url = "https://www.google.com/search?q=#{query}&num=22"
+    url = "https://www.google.com/search?q=#{query}&num=21"
     raw_page = HTTParty.get(url, headers: random_header)
     parsed_page = Nokogiri::HTML(raw_page.body)
 
