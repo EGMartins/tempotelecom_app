@@ -1,7 +1,10 @@
-class GenerateRandomTaskJob < ActiveJob::Base
-  queue_as :default
+# frozen_string_literal: true
 
-  def perform(*args)
+# Description: This job will generate a random task and save it to the database
+class GenerateRandomTaskJob < ActiveJob::Base
+  queue_as :medium
+
+  def perform(*_args)
     task = Task.new(name: Faker::Lorem.word, description: Faker::Lorem.sentence, complete: false)
     task.save!
     sleep(10)

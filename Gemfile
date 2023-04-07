@@ -43,6 +43,7 @@ end
 
 group :test do
   gem 'database_cleaner-active_record'
+  gem 'rspec-sidekiq'
   gem 'shoulda-matchers', '3.1.2'
 end
 
