@@ -19,6 +19,8 @@ services:
       - bundler_gems:/usr/local/bundle
     ports:
       - "3000:3000"
+    links:
+      - db:db
     depends_on:
       - db
       - redis
