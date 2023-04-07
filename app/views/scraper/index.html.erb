@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Google Scrapping Results</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>link</th>
+      <th>Date</th>
+      <th>Processed at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scrap_results.each do |scrap_result| %>
+      <tr>
+        <td><%= scrap_result.title %></td>
+        <td><%= scrap_result.link %></td>
+        <td><%= scrap_result.date %></td>
+        <td><%= scrap_result.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<%= link_to 'Scrap New Results (Background Job)', scraper_google_search_path %>
+<%= link_to 'Remove Scrapped Results', scrapper_remove_all_path %>

@@ -3,16 +3,13 @@
 # Description: Service to scrap google search results
 class GoogleScrapService
   def scrap(query)
-    url = "https://www.google.com/search?q=#{query}&num=21"
+    url = "https://www.google.com/search?q=#{query}&num=22"
     raw_page = HTTParty.get(url, headers: random_header)
     parsed_page = Nokogiri::HTML(raw_page.body)
-    results = []
 
     parsed_page.css('div.g').each do |result|
-      results << formatted_results(result)
+      ScrapperResult.create!(formatted_results(result))
     end
-
-    results
   end
 
   private
@@ -20,7 +17,7 @@ class GoogleScrapService
   def formatted_results(result)
     {
       title: result.css('h3').text,
-      url: fetch_link(result),
+      link: fetch_link(result),
       date: fetch_date(result)
     }
   end
