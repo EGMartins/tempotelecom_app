@@ -33,11 +33,13 @@ services:
       - RAILS_ENV=test
     depends_on:
       - db_test
-      - redis
-  redis:
+      - redis_test
+  redis_test:
     image: redis
     container_name: tempotelecom-tdd-redis
     command: redis-server
+    ports:
+      - "6377:6379"
     volumes:
       - 'redis:/data'
 volumes:

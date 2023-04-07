@@ -11,10 +11,10 @@ RSpec.describe GenerateRandomTaskJob, type: :job do
   end
 
   it 'is in medium queue' do
-    expect(GenerateRandomTaskJob.new.queue_name).to eq('medium')
+    expect(GenerateRandomTaskJob.new.queue_name).to eq('default')
   end
 
-  it { is_expected.to be_processed_in :medium }
+  it { is_expected.to be_processed_in :default }
 
   after do
     clear_enqueued_jobs

@@ -38,7 +38,7 @@ class TasksController < ApplicationController
   def create_random_task
     GenerateRandomTaskJob.perform_later
     respond_to do |format|
-      format.html { redirect_to tasks_path, notice: 'Task is beeing created on background. Refresh the page after few seconds.' }
+      format.html { redirect_to tasks_path, notice: 'Task is being created on background. Refresh the page after few seconds.' }
     end
   end
 
