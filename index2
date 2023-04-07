@@ -1,0 +1,5 @@
+<h1>Pratical test Tempotelecom</h1>
+<h3>Chosse your next destination</h3>
+<%= link_to 'Tasks', tasks_path %>
+<br><br>
+<%= link_to 'Google Scrapper', scrapper_path %>
