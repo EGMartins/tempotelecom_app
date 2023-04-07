@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :tasks do
     get 'create_random_task', on: :collection
   end
-  get 'scraper/google_search'
-  get 'scrapper', to: 'scraper#index'
-  get 'scrapper/remove_all', to: 'scraper#remove_all'
+  get 'scrapper/google_search'
+  get 'scrapper', to: 'scrapper#index'
+  get 'scrapper/remove_all'
 end

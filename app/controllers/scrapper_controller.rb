@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # ScraperController is a controller that will scrape google search results
-class ScraperController < ApplicationController
+class ScrapperController < ApplicationController
   def index
     @scrap_results = ScrapperResult.all
   end
