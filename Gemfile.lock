@@ -48,7 +48,16 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.0)
     crass (1.0.6)
+    database_cleaner (1.99.0)
+    database_cleaner-active_record (1.99.0)
+      activerecord
+      database_cleaner (~> 1.99.0)
+    database_cleaner-core (2.0.1)
+    database_cleaner-redis (2.0.0)
+      database_cleaner-core (~> 2.0.0)
+      redis
     date (3.3.3)
     debug_inspector (1.1.0)
     diff-lcs (1.5.0)
@@ -123,6 +132,10 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rdoc (4.3.0)
+    redis (5.0.6)
+      redis-client (>= 0.9.0)
+    redis-client (0.14.1)
+      connection_pool
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -184,6 +197,8 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  database_cleaner-active_record
+  database_cleaner-redis
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)

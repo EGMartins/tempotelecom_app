@@ -19,9 +19,12 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - redis
     environment:
       POSTGRES_PASSWORD: parker
       POSTGRES_USER: peter
+  redis:
+    image: redis
 volumes:
   postgres:
   bundler_gems:
