@@ -35,6 +35,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def create_random_task
+    GenerateRandomTaskJob.perform_later
+    respond_to do |format|
+      format.html { redirect_to tasks_path, notice: 'Task is beeing created on background. Refresh the page after few seconds.' }
+    end
+  end
+
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update

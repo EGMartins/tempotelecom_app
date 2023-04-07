@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+# Class: GenerateRandomTaskJobO
+class GenerateRandomTaskJobOld
+  queue_as :default
+
+  def perform(*_args)
+    task = Task.new(name: Faker::Lorem.word, description: Faker::Lorem.sentence, complete: false)
+    task.save!
+    sleep 10
+  end
+end

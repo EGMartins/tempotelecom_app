@@ -1,12 +1,14 @@
 version: "3.9"
 services:
-  db:
+  db_test:
     image: postgres
+    container_name: tempotelecom-tdd-db
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
+      POSTGRES_DB: tempotelecom_test
       POSTGRES_PASSWORD: parker
       POSTGRES_USER: peter
   tdd:
@@ -23,12 +25,22 @@ services:
     volumes:
       - .:/app
       - bundler_gems:/usr/local/bundle
+      - redis:/test_data
     environment:
+      - POSTGRES_DB=tempotelecom_test
       - POSTGRES_PASSWORD=parker
       - POSTGRES_USER=peter
       - RAILS_ENV=test
     depends_on:
-      - db
+      - db_test
+      - redis
+  redis:
+    image: redis
+    container_name: tempotelecom-tdd-redis
+    command: redis-server
+    volumes:
+      - 'redis:/data'
 volumes:
   postgres:
   bundler_gems:
+  redis:

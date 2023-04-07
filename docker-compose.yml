@@ -9,6 +9,8 @@ services:
     environment:
       POSTGRES_PASSWORD: parker
       POSTGRES_USER: peter
+    networks:
+      - tempotelecom
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -23,8 +25,39 @@ services:
     environment:
       POSTGRES_PASSWORD: parker
       POSTGRES_USER: peter
+    networks:
+      - tempotelecom
   redis:
     image: redis
+    command: redis-server
+    volumes:
+      - 'redis:/data'
+    networks:
+      - tempotelecom
+  sidekiq:
+    build: .
+    depends_on:
+      - web
+      - db
+      - redis
+    volumes:
+      - .:/app
+      - bundler_gems:/usr/local/bundle
+    environment:
+      RAILS_ENV: development
+      REDIS_URL_SIDEKIQ: redis://redis:6379/1
+      POSTGRES_PASSWORD: parker
+      POSTGRES_USER: peter
+    entrypoint: ./entrypoints/sidekiq-entrypoint.sh
+    networks:
+      - tempotelecom
+
+networks:
+  tempotelecom:
+    driver: bridge
+
 volumes:
   postgres:
   bundler_gems:
+  redis:
+

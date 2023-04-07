@@ -96,4 +96,24 @@ RSpec.describe TasksController, type: :request do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    let!(:task) { Task.create(name: 'Test task', description: 'Lorem ipsum dolor sit amet') }
+
+    it 'deletes the task' do
+      expect do
+        delete "/tasks/#{task.id}"
+      end.to change(Task, :count).by(-1)
+      expect(response).to redirect_to(tasks_path)
+    end
+  end
+
+  describe 'GET #create_random_task' do
+    it 'creates a new task' do
+      expect do
+        get '/tasks/create_random_task'
+      end.to change(Task, :count).by(0)
+      expect(response).to redirect_to(tasks_path)
+    end
+  end
 end
