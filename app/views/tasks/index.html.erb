@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row text-center justify-content-center">
+    <h1>Tasks</h1>
+  </div>
+</div>
 
-<h1>Listing Tasks</h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Complete</th>
-      <th colspan="3"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Complete</th>
+      <th scope="col" colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.name %></td>
+        <td scope="row"><%= task.name %></td>
         <td><%= task.description %></td>
         <td><%= task.complete %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', task, class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-outline-secondary btn-sm" %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Task', new_task_path %>
-<br>
-<%= link_to 'Create Random Task (Background Job)', create_random_task_tasks_path %>
-<br>
-<%= link_to 'Main page', root_path %>
+<div class="row text-center justify-content-center">
+  <div class="mx-auto">
+    <%= link_to 'New Task', new_task_path, class: "btn btn-outline-primary" %>
+    <%= link_to 'Create Random Task (Background Job)', create_random_task_tasks_path, class: "btn btn-outline-primary" %>
+    <%= link_to 'Main page', root_path, class: "btn btn-outline-primary" %>
+  </div>
+</div>

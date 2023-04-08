@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+.alert-dismissible {
+  padding-left: $close-font-size + $alert-padding-x * 2;
+}

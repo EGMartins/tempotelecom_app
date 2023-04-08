@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">
+        Task Name: <%= @task.name %>
+      </h3>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <strong>Description:</strong>
+        <%= @task.description %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @task.name %>
-</p>
+      <p class="card-text">
+        <strong>Complete:</strong>
+        <%= @task.complete %>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
-
-<p>
-  <strong>Complete:</strong>
-  <%= @task.complete %>
-</p>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+  <div class="mt-2">
+    <%= link_to 'Edit', edit_task_path(@task), class: 'btn btn-outline-secondary' %> |
+    <%= link_to 'Back', tasks_path, class: 'btn btn-link' %>
+  </div>
+</div>
