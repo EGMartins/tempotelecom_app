@@ -1,6 +1,6 @@
-<h1>Editing Task</h1>
+<h1><%= t('tasks.edit.title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @task, class: 'btn btn-outline-primary' %>
-<%= link_to 'Back', tasks_path, class: 'btn btn-link' %>
+<%= link_to t('tasks.edit.show'), @task, class: 'btn btn-outline-primary' %>
+<%= link_to t('tasks.edit.back'), tasks_path, class: 'btn btn-link' %>

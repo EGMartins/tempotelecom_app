@@ -1,23 +1,54 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  home:
+    index:
+      welcome: 'Pratical Test Tempotelecom'
+      choose: 'Choose your next action'
+      tasks: 'Tasks'
+      scrapper: 'Google Scrapper'
+  tasks:
+    index:
+      title: 'Tasks'
+      table_name: 'Name'
+      table_description: 'Description'
+      table_complete: 'Completed'
+      new_task: 'New Task'
+      random_task: 'Create Random Task (Background Job)'
+      main_page: 'Main Page'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      delete_message: 'Are you sure?'
+    new:
+      title: 'Create New Task'
+      name: 'Name'
+      description: 'Description'
+      complete: 'Completed'
+      save_task: 'Save task'
+      back: 'Back'
+    edit:
+      title: 'Editing Task'
+      show: 'Show'
+      back: 'Back'
+    show:
+      task_name: 'Task Name: '
+      description: 'Description: '
+      complete: 'Completed: '
+      show: 'Show'
+      back: 'Back'
+    general:
+      created: 'Task was successfully created'
+      background: 'Task is being created on background. Refresh the page after few seconds.'
+      updated: 'Task was successfully updated.'
+      deleted: 'Task was successfully deleted.'
+  scrapper:
+    index:
+      title: 'Google Scrapping Results for Tempotelecom'
+      table_title: 'Title'
+      table_link: 'Link'
+      table_date: 'Date'
+      table_processed_at: 'Processed at'
+      new_scrap: 'Scrap new results (Background Job)'
+      remove_scrap: 'Remove Scrapped Results'
+      main_page: 'Main Page'
+      removed: 'All results have been removed.'
+      scrapped: 'The results are being scrapped on background. Refresh the page after few seconds.'

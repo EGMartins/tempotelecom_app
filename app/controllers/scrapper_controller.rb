@@ -8,15 +8,14 @@ class ScrapperController < ApplicationController
 
   def remove_all
     ScrapperResult.destroy_all
-    redirect_to scrapper_path, notice: 'All results have been removed.'
+    redirect_to scrapper_path, notice: t('scrapper.index.removed')
   end
 
   def google_search
     ScrapGoogleResultJob.perform_later
     respond_to do |format|
       format.html do
-        redirect_to scrapper_path, notice: 'The results are being scrapped on background. \
-        Refresh the page after few seconds.'
+        redirect_to scrapper_path, notice: t('scrapper.index.scrapped')
       end
     end
   end

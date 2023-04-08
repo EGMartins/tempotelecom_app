@@ -1,15 +1,15 @@
 <div class="container-fluid">
   <div class="row text-center justify-content-center">
-    <h1>Tasks</h1>
+    <h1><%= t('.title') %></h1>
   </div>
 </div>
 
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Complete</th>
+      <th scope="col"><%= t('.table_name') %></th>
+      <th scope="col"><%= t('.table_description') %></th>
+      <th scope="col"><%= t('.table_complete') %></th>
       <th scope="col" colspan="3"></th>
     </tr>
   </thead>
@@ -20,9 +20,9 @@
         <td scope="row"><%= task.name %></td>
         <td><%= task.description %></td>
         <td><%= task.complete %></td>
-        <td><%= link_to 'Show', task, class: "btn btn-outline-primary btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-outline-secondary btn-sm" %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('tasks.index.show'), task, class: "btn btn-outline-primary btn-sm" %></td>
+        <td><%= link_to t('tasks.index.edit'), edit_task_path(task), class: "btn btn-outline-secondary btn-sm" %></td>
+        <td><%= link_to t('tasks.index.destroy'), task, method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: t('tasks.index.delete_message') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,8 +30,8 @@
 
 <div class="row text-center justify-content-center">
   <div class="mx-auto">
-    <%= link_to 'New Task', new_task_path, class: "btn btn-outline-primary" %>
-    <%= link_to 'Create Random Task (Background Job)', create_random_task_tasks_path, class: "btn btn-outline-primary" %>
-    <%= link_to 'Main page', root_path, class: "btn btn-outline-primary" %>
+    <%= link_to t('.new_task'), new_task_path, class: "btn btn-outline-primary" %>
+    <%= link_to t('.random_task'), create_random_task_tasks_path, class: "btn btn-outline-primary" %>
+    <%= link_to t('.main_page'), root_path, class: "btn btn-outline-primary" %>
   </div>
 </div>

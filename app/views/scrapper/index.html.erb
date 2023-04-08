@@ -1,13 +1,13 @@
 <div class="mt-3">
-  <h1>Google Scrapping Results for <i>Tempotelecom</i></h1>
+  <h1><%= t('scrapper.index.title') %></h1>
 
   <table class="table mt-5">
     <thead>
       <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Link</th>
-        <th scope="col">Date</th>
-        <th scope="col">Processed at</th>
+        <th scope="col"><%= t('scrapper.index.table_name') %></th>
+        <th scope="col"><%= t('scrapper.index.table_link') %></th>
+        <th scope="col"><%= t('scrapper.index.table_date') %></th>
+        <th scope="col"><%= t('scrapper.index.table_processed_at') %></th>
       </tr>
     </thead>
 
@@ -25,9 +25,9 @@
 
   <div class="row text-center justify-content-center mt-5">
     <div class="mx-auto mb-5">
-      <%= link_to 'Scrap New Results (Background Job)', scrapper_google_search_path, class: 'btn btn-outline-primary' %>
-      <%= link_to 'Remove Scrapped Results', scrapper_remove_all_path, class: 'btn btn-outline-danger' %>
-      <%= link_to 'Main Screen', root_path, class: 'btn btn-link' %>
+      <%= link_to t('scrapper.index.new_scrap'), scrapper_google_search_path, class: 'btn btn-outline-primary' %>
+      <%= link_to t('scrapper.index.remove_scrap'), scrapper_remove_all_path, class: 'btn btn-outline-danger' %>
+      <%= link_to t('scrapper.index.main_page'), root_path, class: 'btn btn-link' %>
     </div>
   </div>
 </div>

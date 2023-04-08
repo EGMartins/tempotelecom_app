@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :name %><br>
+    <%= f.label :name, t('tasks.new.name') %><br>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="field form-group">
-    <%= f.label :description %><br>
+    <%= f.label :description, t('tasks.new.description') %><br>
     <%= f.text_area :description, class: 'form-control' %>
   </div>
   <div class="field form-check">
     <%= f.check_box :complete, class: 'form-check-input' %>
-    <%= f.label :complete, class: 'form-check-label' %>
+    <%= f.label :complete, t('tasks.new.complete'), class: 'form-check-label' %>
   </div>
   <div class="actions">
-    <%= f.submit 'Save Task', class: 'btn btn-outline-primary' %>
+    <%= f.submit t('tasks.new.save_task'), class: 'btn btn-outline-primary' %>
   </div>
 <% end %>

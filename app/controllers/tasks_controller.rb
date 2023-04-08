@@ -26,7 +26,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to @task, notice: t('tasks.general.created') }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
   def create_random_task
     GenerateRandomTaskJob.perform_later
     respond_to do |format|
-      format.html { redirect_to tasks_path, notice: 'Task is being created on background. Refresh the page after few seconds.' }
+      format.html { redirect_to tasks_path, notice: t('tasks.general.background') }
     end
   end
 
@@ -47,7 +47,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to @task, notice: t('tasks.general.updated') }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to tasks_url, notice: t('tasks.general.deleted') }
       format.json { head :no_content }
     end
   end
