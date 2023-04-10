@@ -24,7 +24,7 @@ Docker \
 Docker Compose
 
 
-## Installation
+## Instalação
 
 **IMPORTANTE:**
 
@@ -66,7 +66,7 @@ O seguinte comando deve ser executado para parar a aplicação e excluir todos o
   make stop-app-d
 ```
 
-## Running Tests
+## Execução dos testes
 
 Para a execução dos testes basta executar o comando
 
