@@ -11,6 +11,10 @@ class ScrapperController < ApplicationController
     redirect_to scrapper_path, notice: t('scrapper.index.removed')
   end
 
+  def print_name
+    puts "Hello World"
+  end
+
   def google_search
     ScrapGoogleResultJob.perform_later
     respond_to do |format|
